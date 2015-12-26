@@ -10,6 +10,7 @@ class Registration{
         $this->confirmPassword = $cPassword;
         $this->email = $email;
         $this->phoneNum = $phoneNum;
+        var_dump($_POST); exit;
     }
 
     public function checkPassword()
@@ -17,16 +18,16 @@ class Registration{
         if ($this->password != $this->confirmPassword) {
             return "You entered passwords differently";
         }else{
-            return "why the hell you lying";
+            return null;
         }
     }
 
     public function checkEmail()
     {
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            return "This email address is considered valid.";
+            return "This email isnt valid please re-type.";
         }else{
-            return "Re-enter your email";
+            return "This email address is considered valid.";
         }
     }
 }
