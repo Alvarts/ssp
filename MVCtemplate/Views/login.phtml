@@ -1,0 +1,23 @@
+<?php require ('template/header.phtml') ?>
+<h4> Login in-order to rent DVD's from the store</h4>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+            <label>Username</label><br>
+            <input type="text" name="username" value="<?php echo $_POST['username'];?>" size="10" maxlength="10"/><br>
+            <label>Password</label><br>
+            <input type="password" name="password" value="<?php echo $_POST['password'];?>" size="12"
+                   maxlength="16"/><br>
+            <br>
+                <input type="submit" value="submit" name="submit" />
+                <input type="reset" value="reset" name="reset"/>
+
+            <br>
+            <p>If you are not registered <a href="../registration.php">click here</a> to create
+                an account</p>
+        </form>
+
+<?php if(isset($view->error)) : ?>
+    <p><?php echo $view->error; ?></p>
+<?php endif; ?>
+
+<?php require ('template/footer.phtml')?>
