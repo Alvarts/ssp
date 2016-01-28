@@ -1,6 +1,33 @@
 <?php require ('template/header.phtml') ?>
 
     <h1>All DVD's</h1>
+    <table style="100%">
+        <tr>
+            <th></th>
+            <th>DVD Title</th>
+            <th>Release Date</th>
+            <th>Cast</th>
+            <th>Director</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+        <?php foreach ($view->dvds as $dvd) { ?>
+
+            <tr>
+                <td><img src="images/<?php echo $dvd['image_name']; ?>" alt="Cover" style="width:140px;height:180px;"></td>
+                <td><?php echo $dvd['title']; ?></td>
+                <td><?php echo $dvd['release']; ?></td>
+                <td><?php echo $dvd['cast']; ?></td>
+                <td><?php echo $dvd['director']; ?></td>
+                <td><?php echo $dvd['genre']; ?></td>
+                <td><?php echo $dvd['price_band']; ?></td>
+                <td><?php if ($dvd['rented'] == 0) echo 'Available'; else echo 'Rented'; ?></td>
+            </tr>
+
+        <?php } ?>
+            
+    </table>
 
 
 <?php require ('template/footer.phtml')?>

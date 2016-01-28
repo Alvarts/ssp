@@ -2,13 +2,18 @@
 
 class Login{
 
-    var $username ='', $password='';
+    public function checkCredentials(array $data){
 
-    public function _construct($username,$password){
-        $this->username = $username;
-        $this->password = $password;
+        if (empty($data['email']) || empty($data['password']) || empty($data['password2']) || empty($data['phone'])) {
+            return 'Please fill in all the fields';
+        }
+
+        // check email
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            return 'Invalid email address';
+        }
+        return null;
+
     }
-
-
 
 }

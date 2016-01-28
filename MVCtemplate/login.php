@@ -4,9 +4,14 @@ $view = new stdClass();
 $view->pageTitle = 'Login';
 require_once('Views/login.phtml');
 
-
 if(isset($_POST['submit'])) {
 
-}elseif(isset($_POST['reset']))
+    $login = new Login;
+    $validator = $login>checkCredentials($_POST);
+
+    if ($validator !== true) {
+        $view->error = $validator;
+    }
+    }
 
 require_once('Views/login.phtml');
